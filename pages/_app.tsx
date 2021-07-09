@@ -1,7 +1,26 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/tailwind.css";
+import "../styles/globals.css";
+import Head from "next/head";
+import Navbar from "../components/Navbar";
+import type { AppProps } from "next/app";
+import LeftNavbar from "../components/LeftNavbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <title>Corona Tracker</title>
+      </Head>
+      <header>
+        <Navbar />
+      </header>
+      <div className="body">
+        <LeftNavbar />
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </div>
+    </>
+  );
 }
-export default MyApp
+export default MyApp;

@@ -10,6 +10,7 @@
   --hover: #3a3b3c;
   --primary-text: #e4e6eb;
   --secondary-text: #b0b3b8;
+  --primary-green: #2ce50e;
 }
 
 * {
@@ -38,4 +39,21 @@ body {
   color: var(--primary-text);
   font-weight: 400;
   font-size: 1rem;
+}
+
+a.active {
+  border-bottom: 4px solid var(--primary-green);
+}
+
+/* custom colors */
+.card {
+  background: var(--card);
+}
+
+.text-green {
+  color: #2ce50e;
+}
+
+.text-secondary {
+  color: var(--secondary-text);
 }

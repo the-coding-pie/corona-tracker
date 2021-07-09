@@ -1,5 +1,12 @@
+import Head from 'next/head'
+
 const Home = () => {
-  return <div>Home</div>;
+  return <>
+    <Head>
+      <title>Home</title>
+    </Head>
+    <div>Home</div>
+  </>;
 };
 
 export default Home;
