@@ -1,50 +1,26 @@
 import CountInfoLg from "./CountInfoLg";
 import CountInfoSm from "./CountInfoSm";
-import PieChart from "./PieChart";
+import ProgressBar from "./ProgressBar";
 
 const LeftNavbar = () => {
   return (
     <nav className="left-nav min-h-screen overflow-x-hidden w-min z-20 card px-4 py-2">
       {/* world wide */}
-      <section className="world-wide">
-        <div className="top mb-2">
-          <div className="left">
-            <h2 className="text-xl font-bold mb-2">World Wide</h2>
+      <section className="world-wide mb-6">
+        <div className="top mb-3 flex flex-col justify-center">
+          <h2 className="text-xl font-bold mb-2">World Wide</h2>
 
-            <CountInfoLg
-              text="Total"
-              count="184,158,222"
-              color="text-red-400"
-            />
-          </div>
-          <div className="right">
-            <PieChart
-              data={[
-                {
-                  id: "Created",
-                  label: "Created",
-                  value: 1823323,
-                  link: "",
-                  color: "hsl(213, 70%, 50%)",
-                },
-                {
-                  id: "New",
-                  label: "Created",
-                  value: 1823323,
-                  link: "",
-                  color: "hsl(213, 70%, 50%)",
-                },
-                {
-                  id: "Ok",
-                  label: "Created",
-                  value: 1823323,
-                  link: "",
-                  color: "hsl(213, 70%, 50%)",
-                },
-              ]}
-              chartColor={"yellow_green"}
-            />
-          </div>
+          <CountInfoLg text="Total" count="184,158,222" color="text-red-400" />
+        </div>
+        <div className="middle mb-2">
+          {/* progress bar */}
+          <ProgressBar
+            data={[
+              { count: 232323, color: "bg-green" },
+              { count: 23242, color: "bg-yellow-400" },
+              { count: 24235, color: "bg-gray-400" },
+            ]}
+          />
         </div>
         <div className="bottom flex">
           <CountInfoSm
@@ -65,6 +41,30 @@ const LeftNavbar = () => {
             color="text-gray-400"
           />
         </div>
+      </section>
+
+      <section className="last-updated flex items-center justify-between">
+        <span className="font-extralight" style={{
+          fontSize: "0.7rem"
+        }}>
+          Last updated: {new Date().toISOString()}
+        </span>
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-3.5 w-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+            />
+          </svg>
+        </button>
       </section>
     </nav>
   );

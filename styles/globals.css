@@ -45,15 +45,25 @@ a.active {
   border-bottom: 4px solid var(--primary-green);
 }
 
+button {
+  outline: none;
+  border: none;
+}
+
 /* custom colors */
 .card {
   background: var(--card);
 }
 
 .text-green {
-  color: #2ce50e;
+  color: var(--primary-green);
 }
 
 .text-secondary {
   color: var(--secondary-text);
+}
+
+/* bg color */
+.bg-green {
+  background: var(--primary-green);
 }
