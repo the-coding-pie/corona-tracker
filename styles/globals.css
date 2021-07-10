@@ -81,6 +81,10 @@ button {
   background: var(--hover);
 }
 
+.sidebar-link-active:hover {
+  @apply bg-green-800 bg-opacity-50;
+}
+
 .border-gray {
   border-color: var(--border-gray);
 }

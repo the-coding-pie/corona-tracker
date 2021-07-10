@@ -14,12 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <header>
         <Navbar />
       </header>
-      <div className="body flex">
-        <LeftNavbar />
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
+      <Component {...pageProps} />
     </>
   );
 }

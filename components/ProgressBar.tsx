@@ -17,6 +17,7 @@ const ProgressBar = ({ data }: Props) => {
       {data.length > 0 &&
         data.map((value) => (
           <span
+            key={value.color}
             className={`${value.color} first:rounded-l last:rounded-r`}
             style={{
               width: `${(value.count / total) * 100}%`,
