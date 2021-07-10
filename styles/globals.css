@@ -8,6 +8,7 @@
   --bg: #18191a;
   --card: #242526;
   --hover: #3a3b3c;
+  --border-gray: #858585;
   --primary-text: #e4e6eb;
   --secondary-text: #b0b3b8;
   --primary-green: #2ce50e;
@@ -59,6 +60,10 @@ button {
   color: var(--primary-green);
 }
 
+.text-primary {
+  color: var(--primary-text);
+}
+
 .text-secondary {
   color: var(--secondary-text);
 }
@@ -66,4 +71,28 @@ button {
 /* bg color */
 .bg-green {
   background: var(--primary-green);
+}
+
+.bg-gray {
+  background: var(--hover);
+}
+
+.bg-gray-hover:hover {
+  background: var(--hover);
+}
+
+.border-gray {
+  border-color: var(--border-gray);
+}
+
+/* hide scrollbar */
+/* Hide scrollbar for Chrome, Safari and Opera */
+#countries::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#countries {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

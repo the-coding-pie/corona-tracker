@@ -1,12 +1,14 @@
+import { format } from "date-fns";
+import BrowseCountries from "./BrowseCountries";
 import CountInfoLg from "./CountInfoLg";
 import CountInfoSm from "./CountInfoSm";
 import ProgressBar from "./ProgressBar";
 
 const LeftNavbar = () => {
   return (
-    <nav className="left-nav min-h-screen overflow-x-hidden w-min z-20 card px-4 py-2">
+    <nav className="left-nav min-h-screen max-h-screen h-screen overflow-hidden w-min z-20 card">
       {/* world wide */}
-      <section className="world-wide mb-6">
+      <section className="world-wide mb-6 px-4 pt-2">
         <div className="top mb-3 flex flex-col justify-center">
           <h2 className="text-xl font-bold mb-2">World Wide</h2>
 
@@ -43,11 +45,19 @@ const LeftNavbar = () => {
         </div>
       </section>
 
-      <section className="last-updated flex items-center justify-between">
-        <span className="font-extralight" style={{
-          fontSize: "0.7rem"
-        }}>
-          Last updated: {new Date().toISOString()}
+      <div
+        className="last-updated flex items-center justify-between border-gray px-4 pb-2 mb-6"
+        style={{
+          borderBottomWidth: "0.8px",
+        }}
+      >
+        <span
+          className="font-extralight"
+          style={{
+            fontSize: "0.7rem",
+          }}
+        >
+          Last updated: {format(new Date(), "hh:mm")}
         </span>
         <button>
           <svg
@@ -65,7 +75,9 @@ const LeftNavbar = () => {
             />
           </svg>
         </button>
-      </section>
+      </div>
+
+      <BrowseCountries />
     </nav>
   );
 };
