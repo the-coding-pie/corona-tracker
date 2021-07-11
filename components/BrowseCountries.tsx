@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { BASE_URL } from "../extras/constants";
@@ -88,10 +88,10 @@ const BrowseCountries = () => {
         {countries &&
           countries.length > 0 &&
           countries.map((country) => (
-            <Link href={`/countries/${country.iso3}`}>
+            <Link href={`?country=${country.iso3}`}>
               <div
                 className={`country flex items-center bg-gray-hover px-4 py-2 cursor-pointer ${
-                  country.iso3 === query.iso
+                  country.iso3 === query.country
                     ? "sidebar-link-active bg-green-800 bg-opacity-50"
                     : ""
                 }`}

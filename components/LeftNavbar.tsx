@@ -1,3 +1,4 @@
+import React from "react";
 import BrowseCountries from "./BrowseCountries";
 import WorldData from "./WorldData";
 
