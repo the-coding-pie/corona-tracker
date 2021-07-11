@@ -2,13 +2,19 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { BASE_URL, WORLD_WIDE } from "../extras/constants";
 import axios from "axios";
-import { SpecificData } from "../extras/types";
+import { LatLong, SpecificData } from "../extras/types";
 import { useRouter } from "next/dist/client/router";
 import LeftNavbar from "../components/LeftNavbar";
 import useSWR from "swr";
 import TopCards from "../components/TopCards";
+import { useEffect, useState } from "react";
 
-const DMap = dynamic(() => import("../components/Map"), { ssr: false });
+const DMap = dynamic(() => import("../components/MyMap"), {
+  ssr: false,
+  loading() {
+    return <div>Loading...</div>;
+  },
+});
 
 const getSpecificData = (url: string, country: string) => {
   if (country === WORLD_WIDE) {
@@ -27,6 +33,7 @@ const getSpecificData = (url: string, country: string) => {
         todayRecovered: data.todayRecovered,
         deaths: data.deaths,
         todayDeaths: data.todayDeaths,
+        latLong: undefined,
       };
     });
   } else {
@@ -47,6 +54,7 @@ const getSpecificData = (url: string, country: string) => {
           todayRecovered: data.todayRecovered,
           deaths: data.deaths,
           todayDeaths: data.todayDeaths,
+          latLong: [data.countryInfo.lat, data.countryInfo.long],
         };
       });
   }
@@ -59,6 +67,12 @@ const Home = () => {
     ["specificData", query.country ? query.country : WORLD_WIDE],
     getSpecificData
   );
+
+  const [latLong, setLatLong] = useState<LatLong | undefined>(undefined);
+
+  useEffect(() => {
+    setLatLong(data?.latLong);
+  }, [data]);
 
   return (
     <>
@@ -73,6 +87,11 @@ const Home = () => {
         <main className="flex-1 w-full flex flex-col">
           {/* top cards */}
           <TopCards {...{ data, error, isValidating }} />
+
+          {/* map */}
+          <div className="map p-4 object-contain h-3/5 w-full object-center rounded">
+            <DMap {...{ latLong }} />
+          </div>
         </main>
       </div>
     </>

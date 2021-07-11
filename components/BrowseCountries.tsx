@@ -96,15 +96,17 @@ const BrowseCountries = () => {
                     : ""
                 }`}
               >
-                <div className="flag flex items-center justify-center mr-4">
-                  <Image
-                    src={country.flag}
-                    alt={country.name}
-                    width={28}
-                    height={28}
-                    className="object-contain object-center"
-                  />
-                </div>
+                {country.flag && (
+                  <div className="flag flex items-center justify-center mr-4">
+                    <Image
+                      src={country.flag}
+                      alt={country.name}
+                      width={28}
+                      height={28}
+                      className="object-contain object-center"
+                    />
+                  </div>
+                )}
 
                 <div className="details text-sm">
                   <div className="font-bold text-primary mb-0.5">

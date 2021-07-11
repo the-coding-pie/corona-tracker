@@ -100,3 +100,11 @@ button {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.map .leaflet-tile-container {
+  filter: grayscale(1) invert(1) brightness(0.8);
+}
+
+.map .leaflet-tile-container * {
+  filter: none;
+}

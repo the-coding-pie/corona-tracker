@@ -1,3 +1,7 @@
+
+
+export type LatLong = [number, number]
+
 // country
 export interface Country {
   name: string;
@@ -27,4 +31,5 @@ export interface SpecificData {
   todayRecovered: number | undefined;
   todayActive: number | undefined;
   todayDeaths: number | undefined;
+  latLong: LatLong | undefined;
 }
