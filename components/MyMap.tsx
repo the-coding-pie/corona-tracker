@@ -13,6 +13,7 @@ import axios from "axios";
 import useSWR from "swr";
 import { LatLong } from "../extras/types";
 import { LatLngExpression } from "leaflet";
+import Loader from "./Loader";
 
 const defaultView: LatLong = [24, 30];
 
@@ -65,7 +66,9 @@ const MyMap = ({ latLong }: Props) => {
   }
 
   if (!data) {
-    return <div className="h-full flex-1 flex items-center justify-center">loading...</div>;
+    return <div className="h-full flex-1 flex items-center justify-center">
+       <Loader />
+    </div>;
   }
 
   return (

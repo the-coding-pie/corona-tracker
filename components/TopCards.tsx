@@ -1,6 +1,7 @@
 import { SpecificData } from "../extras/types";
 import Card from "./Card";
 import Image from 'next/image'
+import Loader from "./Loader";
 
 interface Props {
   data: SpecificData | undefined;
@@ -18,7 +19,9 @@ const TopCards = ({ data, error }: Props) => {
   if (!data) {
     return <div className="w-full h-auto flex items-center justify-center" style={{
       minHeight: "194px"
-    }}>loading...</div>;
+    }}>
+       <Loader />
+    </div>;
   }
 
   return (

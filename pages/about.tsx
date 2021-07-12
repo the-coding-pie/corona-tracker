@@ -6,7 +6,13 @@ const About = () => {
       <Head>
         <title>About Me</title>
       </Head>
-      <div>About Me</div>
+      <div className=" flex items-center justify-center w-screen h-screen">
+        <p className="bg-gray rounded text-center max-w-4xl p-4 transform -translate-y-28">
+          Hey there, Thank you for visiting my side project ❤️. <br /> If you
+          are eager to know more about this project, then you can visit my
+          beautiful Github Repo.
+        </p>
+      </div>
     </>
   );
 };

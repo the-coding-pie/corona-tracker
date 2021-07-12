@@ -8,13 +8,14 @@ import LeftNavbar from "../components/LeftNavbar";
 import useSWR from "swr";
 import TopCards from "../components/TopCards";
 import { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 
 const DMap = dynamic(() => import("../components/MyMap"), {
   ssr: false,
   loading() {
     return (
       <div className="h-full flex-1 flex items-center justify-center px-4 py-2">
-        Loading...
+         <Loader />
       </div>
     );
   },
@@ -58,7 +59,7 @@ const getSpecificData = (url: string, country: string) => {
           todayRecovered: data.todayRecovered,
           deaths: data.deaths,
           todayDeaths: data.todayDeaths,
-          latLong: [data.countryInfo.lat, data.countryInfo.long],
+          latLong: [data.countryInfo.lat, data.countryInfo.long] as LatLong,
         };
       });
   }

@@ -6,6 +6,7 @@ import { Country } from "../extras/types";
 import useSWR from "swr";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
+import Loader from "../components/Loader";
 
 const getCountries = () =>
   axios.get(`${BASE_URL}/countries?sort=cases`).then((response) => {
@@ -38,11 +39,19 @@ const BrowseCountries = () => {
   useEffect(() => setCountries(data as Country[]), [data]);
 
   if (error) {
-    return <div className="h-full flex-1 text-center">Failed to load...</div>;
+    return (
+      <div className="h-full flex-1 flex  justify-center">
+        Failed to load...
+      </div>
+    );
   }
 
   if (!data) {
-    return <div className="h-full flex-1 text-center">loading...</div>;
+    return (
+      <div className="h-full flex-1 flex justify-center">
+        <Loader />
+      </div>
+    );
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,9 +87,13 @@ const BrowseCountries = () => {
         />
       </div>
 
-      <div className="countries h-full overflow-auto" id="countries" style={{
-        paddingBottom: "370px"
-      }}>
+      <div
+        className="countries h-full overflow-auto"
+        id="countries"
+        style={{
+          paddingBottom: "370px",
+        }}
+      >
         {countries &&
           countries.length > 0 &&
           countries.map((country) => (

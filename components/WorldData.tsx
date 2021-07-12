@@ -8,6 +8,7 @@ import CountInfoLg from "./CountInfoLg";
 import CountInfoSm from "./CountInfoSm";
 import ProgressBar from "./ProgressBar";
 import Link from "next/link";
+import Loader from "./Loader";
 
 const getWorldData = () =>
   axios.get(`${BASE_URL}/all`).then((response) => {
@@ -32,7 +33,7 @@ const WorldData = () => {
       <div
         className="flex items-center w-full justify-center"
         style={{
-          minHeight: "285px",
+          minHeight: "230px",
         }}
       >
         Failed to load...
@@ -45,10 +46,10 @@ const WorldData = () => {
       <div
         className="flex items-center w-full justify-center"
         style={{
-          minHeight: "285px",
+          minHeight: "230px",
         }}
       >
-        loading...
+         <Loader />
       </div>
     );
   }
