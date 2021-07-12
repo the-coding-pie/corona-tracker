@@ -89,7 +89,7 @@ const Home = () => {
           <TopCards {...{ data, error, isValidating }} />
 
           {/* map */}
-          <div className="map p-4 object-contain h-3/5 w-full object-center rounded">
+          <div className="map px-4 py-2 object-contain h-3/5 w-full object-center rounded">
             <DMap {...{ latLong }} />
           </div>
         </main>

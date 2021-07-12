@@ -14,7 +14,7 @@ import useSWR from "swr";
 import { LatLong } from "../extras/types";
 import { LatLngExpression } from "leaflet";
 
-const defaultView: LatLong = [40.8054, -74.0241];
+const defaultView: LatLong = [24, 30];
 
 interface Props {
   latLong: LatLong | undefined;
@@ -25,7 +25,7 @@ interface CustomCompProps {
 }
 
 const getCountries = () =>
-  axios.get(`${BASE_URL}/countries?sort=cases`).then((response) => {
+  axios.get(`${BASE_URL}/countries`).then((response) => {
     const data = response.data;
     let countries = [];
 
@@ -38,6 +38,7 @@ const getCountries = () =>
           recovered: country.recovered,
           deaths: country.deaths,
           latLong: [country.countryInfo.lat, country.countryInfo.long],
+          population: country.population,
         };
       });
     }
@@ -72,8 +73,11 @@ const MyMap = ({ latLong }: Props) => {
       className="map flex-1 flex z-50 h-full w-full"
       center={defaultView}
       minZoom={2}
-      maxZoom={6}
+      maxZoom={8}
       zoom={2}
+      // maxBounds={[[-90, -180], [90, 180]]}
+      // maxBoundsViscosity={1}
+      worldCopyJump={true}
       scrollWheelZoom={false}
     >
       <TileLayer
@@ -87,11 +91,9 @@ const MyMap = ({ latLong }: Props) => {
           return (
             <Circle
               key={country.name}
-              radius={500}
+              radius={country.total / 15}
               center={country.latLong}
-              fillOpacity={0.2}
-              fillColor="#ff0000"
-              weight={2}
+              fillColor={"#ff0000"}
             >
               <Tooltip direction="top">
                 <div
@@ -133,12 +135,17 @@ const MyMap = ({ latLong }: Props) => {
                       </span>
                     </div>
                   </div>
+
+                  <div className="total pt-1 mt-1 border-t flex justify-between w-full items-center">
+                    <span>Population: </span>
+                    <span>{country?.population?.toLocaleString()}</span>
+                  </div>
                 </div>
               </Tooltip>
-              <CustomComp latLong={latLong} />
             </Circle>
           );
         })}
+      <CustomComp latLong={latLong} />
     </MapContainer>
   );
 };
