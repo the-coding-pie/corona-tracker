@@ -20,4 +20,4 @@ A Corona Tracker made using Next JS, Typescript, Tailwind CSS, and Leaflet. I us
 - Can browse through the map (with the data mapped).
 
 
-## Live Demo -> [Corona Tracker](https://corona-tracker-omega.vercel.app/)
+## Live Demo -> [https://corona-tracker-omega.vercel.app/](https://corona-tracker-omega.vercel.app/)
