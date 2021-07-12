@@ -97,7 +97,7 @@ const BrowseCountries = () => {
         {countries &&
           countries.length > 0 &&
           countries.map((country) => (
-            <Link href={`?country=${country.iso3}`}>
+            <Link key={country.iso3} href={`?country=${country.iso3}`}>
               <div
                 className={`country flex items-center bg-gray-hover px-4 py-2 cursor-pointer ${
                   country.iso3 === query.country
