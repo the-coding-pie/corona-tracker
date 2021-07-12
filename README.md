@@ -17,7 +17,7 @@ A Corona Tracker made using Next JS, Typescript, Tailwind CSS, and Leaflet. I us
 
 - Get World Wide Data
 - Get Country Specific Data
-- Can browse through the map (with the data mapped).
+- Can browse through the map (by seeing the country specific data).
 
 
 ## Live Demo -> [https://corona-tracker-omega.vercel.app/](https://corona-tracker-omega.vercel.app/)
