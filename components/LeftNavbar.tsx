@@ -4,7 +4,9 @@ import WorldData from "./WorldData";
 
 const LeftNavbar = () => {
   return (
-    <nav className="left-nav min-h-screen max-h-screen h-screen overflow-hidden w-min z-20 card">
+    <nav className="left-nav min-h-screen max-h-screen h-screen overflow-hidden w-min z-20 card flex flex-col" style={{
+      minWidth: "233px"
+    }}>
       <WorldData />
 
       <BrowseCountries />

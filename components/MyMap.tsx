@@ -61,11 +61,11 @@ const MyMap = ({ latLong }: Props) => {
   const { data, error } = useSWR("allCountries", getCountries);
 
   if (error) {
-    return <div>Failed to load...</div>;
+    return <div className="h-full flex-1 flex items-center justify-center">Failed to load...</div>;
   }
 
   if (!data) {
-    return <div>loading...</div>;
+    return <div className="h-full flex-1 flex items-center justify-center">loading...</div>;
   }
 
   return (
@@ -85,6 +85,7 @@ const MyMap = ({ latLong }: Props) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
+      {/* data */}
       {data &&
         data.length > 0 &&
         data.map((country: any) => {
@@ -95,14 +96,14 @@ const MyMap = ({ latLong }: Props) => {
               center={country.latLong}
               fillColor={"#ff0000"}
             >
-              <Tooltip direction="top">
+              <Tooltip direction="auto">
                 <div
                   className="bg-white text-sm"
                   style={{
                     minWidth: "176px",
                   }}
                 >
-                  <h3 className="font-bold pb-2 text-center">{country.name}</h3>
+                  <h3 className="font-bold pb-1 text-center">{country.name}</h3>
 
                   <div className="total pb-1 mb-1 border-b text-red-500 flex justify-between items-center">
                     <span>Total Cases: </span>

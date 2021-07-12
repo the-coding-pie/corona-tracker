@@ -38,11 +38,11 @@ const BrowseCountries = () => {
   useEffect(() => setCountries(data as Country[]), [data]);
 
   if (error) {
-    return <div>Failed to load...</div>;
+    return <div className="h-full flex-1 text-center">Failed to load...</div>;
   }
 
   if (!data) {
-    return <div>loading...</div>;
+    return <div className="h-full flex-1 text-center">loading...</div>;
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +63,7 @@ const BrowseCountries = () => {
   };
 
   return (
-    <section className="countries h-full">
+    <section className="countries h-full flex-1">
       <h3 className="text-sm font-semibold text-primary px-4 mb-2">
         Browse Countries
       </h3>

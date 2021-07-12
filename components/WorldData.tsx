@@ -28,11 +28,31 @@ const WorldData = () => {
   );
 
   if (error) {
-    return <div>Failed to load...</div>;
+    return (
+      <div
+        className="flex items-center justify-center"
+        style={{
+          minWidth: "233px",
+          minHeight: "285px",
+        }}
+      >
+        Failed to load...
+      </div>
+    );
   }
 
   if (!data) {
-    return <div>loading...</div>;
+    return (
+      <div
+        className="flex items-center justify-center"
+        style={{
+          minWidth: "233px",
+          minHeight: "285px",
+        }}
+      >
+        loading...
+      </div>
+    );
   }
 
   return (
@@ -119,6 +139,7 @@ const WorldData = () => {
             onClick={() => {
               mutate("worlddata");
               mutate("countries");
+              mutate("allCountries");
             }}
           >
             <svg

@@ -8,13 +8,17 @@ interface Props {
   isValidating: boolean;
 }
 
-const TopCards = ({ data, error, isValidating }: Props) => {
+const TopCards = ({ data, error }: Props) => {
   if (error) {
-    return <div>Failed to load...</div>;
+    return <div className="w-full h-auto flex items-center justify-center" style={{
+      minHeight: "194px"
+    }}>Failed to load...</div>;
   }
 
   if (!data) {
-    return <div>loading...</div>;
+    return <div className="w-full h-auto flex items-center justify-center" style={{
+      minHeight: "194px"
+    }}>loading...</div>;
   }
 
   return (

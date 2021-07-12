@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const DMap = dynamic(() => import("../components/MyMap"), {
   ssr: false,
   loading() {
-    return <div>Loading...</div>;
+    return <div className="h-full flex-1 flex items-center justify-center px-4 py-2">Loading...</div>;
   },
 });
 
