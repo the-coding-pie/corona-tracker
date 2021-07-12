@@ -30,9 +30,8 @@ const WorldData = () => {
   if (error) {
     return (
       <div
-        className="flex items-center justify-center"
+        className="flex items-center w-full justify-center"
         style={{
-          minWidth: "233px",
           minHeight: "285px",
         }}
       >
@@ -44,9 +43,8 @@ const WorldData = () => {
   if (!data) {
     return (
       <div
-        className="flex items-center justify-center"
+        className="flex items-center w-full justify-center"
         style={{
-          minWidth: "233px",
           minHeight: "285px",
         }}
       >

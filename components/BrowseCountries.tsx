@@ -78,13 +78,9 @@ const BrowseCountries = () => {
         />
       </div>
 
-      <div
-        className="countries overflow-auto"
-        id="countries"
-        style={{
-          height: "274.4px",
-        }}
-      >
+      <div className="countries h-full overflow-auto" id="countries" style={{
+        paddingBottom: "370px"
+      }}>
         {countries &&
           countries.length > 0 &&
           countries.map((country) => (

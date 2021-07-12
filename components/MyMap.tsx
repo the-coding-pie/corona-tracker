@@ -70,7 +70,7 @@ const MyMap = ({ latLong }: Props) => {
 
   return (
     <MapContainer
-      className="map flex-1 flex z-50 h-full w-full"
+      className="map flex-1 z-50 h-full w-full"
       center={defaultView}
       minZoom={2}
       maxZoom={8}

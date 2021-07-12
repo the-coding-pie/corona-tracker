@@ -38,7 +38,7 @@ const TopCards = ({ data, error }: Props) => {
         )}
       </div>
 
-      <div className="flex justify-between gap-6 w-full">
+      <div className="flex justify-between gap-6 w-full 2xl:grid 2xl:grid-cols-2">
         <Card
           text="Total Cases"
           count={data.total}

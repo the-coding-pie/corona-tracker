@@ -12,7 +12,11 @@ import { useEffect, useState } from "react";
 const DMap = dynamic(() => import("../components/MyMap"), {
   ssr: false,
   loading() {
-    return <div className="h-full flex-1 flex items-center justify-center px-4 py-2">Loading...</div>;
+    return (
+      <div className="h-full flex-1 flex items-center justify-center px-4 py-2">
+        Loading...
+      </div>
+    );
   },
 });
 
@@ -84,12 +88,12 @@ const Home = () => {
         <LeftNavbar />
 
         {/* home screen */}
-        <main className="flex-1 w-full flex flex-col">
+        <main className="flex-1 pb-16 w-full flex flex-col justify-between">
           {/* top cards */}
           <TopCards {...{ data, error, isValidating }} />
 
           {/* map */}
-          <div className="map px-4 py-2 object-contain h-3/5 w-full object-center rounded">
+          <div className="map px-4 py-2 h-full w-full rounded">
             <DMap {...{ latLong }} />
           </div>
         </main>
