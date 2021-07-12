@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "chart.js": "^3.4.1",
     "date-fns": "^2.22.1",
     "leaflet": "^1.7.1",
     "leaflet-defaulticon-compatibility": "^0.1.1",
